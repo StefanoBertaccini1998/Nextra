@@ -4,3 +4,22 @@ server:
 spring:
   application:
     name: nextra
+  datasource:
+    url: jdbc:postgresql://localhost:5432/nextra
+    username: nextra
+    password: nextra
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        show_sql: true
+
+  flyway:
+    enabled: false
+    locations: classpath:db/migration
+    baseline-on-migrate: true
